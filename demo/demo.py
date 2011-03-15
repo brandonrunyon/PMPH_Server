@@ -13,7 +13,7 @@ class MyHandler(BaseHTTPRequestHandler):
         def do_GET(self):
                 try:
                         #for html files
-                        if self.path.endswith(".html")|self.path.endswith(".htm")|self.path.endswith(".shtml"):
+                        if self.path.endswith(".html")|self.path.endswith(".htm")|self.path.endswith(".shtml")|self.path.endswith(".php"):
                                 f = open(curdir + sep + self.path)
                                 self.send_response(200)
                                 self.send_header('Content-type',        'text/html')
@@ -96,15 +96,15 @@ class MyHandler(BaseHTTPRequestHandler):
                         return
                 #error exeption handling for logging and interactive monitoring, needs to work in do_POST()
                 except IOError:
-                        self.send_error(404, '<h1>404 dude!</h1><br>File Not Found: %s' % self.path)
+                        self.send_error(404, ' File: %s not found' % self.path)
                         self.send_header('Content-type',        'text/html')
                         self.end_headers()
-                        self.wfile.write('<html><body><h1>404 dude!</h1><br>File Not Found: %s</body></html>' % self.path)
+                       
                         
                         
 ip = get_Server_IP()#we would like to know for reference what the address of the machine it's running on
 host = '0.0.0.0' #open to any device for testing, for local only, use loopback address
-port = 80 #standard http port, change for development environment, not safe to use on 80 or 8080
+port = 8000 #standard http port, change for development environment, not safe to use on 80 or 8080
 
 server_class = HTTPServer
 handler_class = MyHandler
