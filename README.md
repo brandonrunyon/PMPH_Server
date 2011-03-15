@@ -1,4 +1,4 @@
-#PMPH_Server / (Portable Micro Python HTTP Server) / 'pimp' server
+#PMPH_Server / (Portable Micro Python HTTP Server)
 
 ###PMPH is a small httpd that I wrote to use on dev boxes and laptops with limited space.
 ###Supports GET content types: html, css, xml, images, json, js, png, gif, and jpg.
