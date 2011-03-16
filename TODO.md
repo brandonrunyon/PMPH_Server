@@ -7,5 +7,6 @@
 *It would be nice to make some sort of web admin interface to maybe change values and restart the server or block IPs
     -perhaps add ftp?
 *Investigate SSL for server
+*replace os.system calls with subprocess calls
 
 ##Feel free to just jump in there and start doing stuff... I'm interested in feed back, probably after i've designed the classes
