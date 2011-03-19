@@ -18,7 +18,7 @@ class MyHandler(BaseHTTPRequestHandler):
                                 self.send_response(200)
                                 self.send_header('Content-type',        'text/html')
                                 self.end_headers()
-				#self.wfile.write(f.read())
+				self.wfile.write(f.read())
                                 f.close()
                                 return
                         #got to have GET handler for css resources
@@ -104,7 +104,7 @@ class MyHandler(BaseHTTPRequestHandler):
                         
 ip = get_Server_IP()#we would like to know for reference what the address of the machine it's running on
 host = '0.0.0.0' #open to any device for testing, for local only, use loopback address
-port = 80 #standard http port, change for development environment, not safe to use on 80 or 8080
+port = 8000 #standard http port, change for development environment, not safe to use on 80 or 8080
 
 server_class = HTTPServer
 handler_class = MyHandler
