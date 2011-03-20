@@ -1,6 +1,7 @@
-import string,cgi,socket
+import string,socket
 from os import curdir, sep
-from BaseHTTPServer import BaseHTTPRequestHandler, HTTPServer
+from BaseHTTPServer import HTTPServer
+from CGIHTTPServer import CGIHTTPRequestHandler
 
 def get_Server_IP(hostname='default'):
         if hostname=='default':
@@ -8,7 +9,11 @@ def get_Server_IP(hostname='default'):
                 ips=socket.gethostbyname_ex(hostname)[2]
                 return [i for i in ips if i.split('.')[0]!='127'][0]
 
-class MyHandler(BaseHTTPRequestHandler):
+class MyHandler(CGIHTTPRequestHandler):
+	def do_HEAD(self):
+		self.send_response(200)
+		self.send_header("Content-type", "text/html")
+		self.end_headers()
 
         def do_GET(self):
                 try:
